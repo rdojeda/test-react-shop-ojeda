@@ -1,18 +1,19 @@
 import { useParams } from "react-router-dom";
-//import { ItemDetailList } from "./ItemDetailList";
+import { ItemDetail } from './ItemDetail';
 
 import { useEffect, useState } from "react";
 import { obtenerProductos } from "../data/productos";
 
-export const ItemDetailContainer = ({ title }) => {
-  const [productos, setProductos] = useState([]);
+export const ItemDetailContainer = () => {
+  let {id} = useParams(); 
+  
+  const [detail, setDetail] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  let { id } = useParams([]); 
-
+  
   useEffect(() => {
     obtenerProductos
       .then((res) => {
-        setProductos(res);
+        setDetail(res);
       })
       .finally(() => {
         setIsLoading(false);
@@ -30,7 +31,7 @@ export const ItemDetailContainer = ({ title }) => {
         <>
           <h1>{title}</h1>
           <div className="container mt-5">
-              <ItemList productos={productos[id]} />
+              <ItemDetail {...detail[id]} />
           </div>
         </>
       )}
