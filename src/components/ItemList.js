@@ -5,11 +5,11 @@ export const ItemList = ({productos}) => {
 
 
   return (
-      <>
-         
-          {productos.map((producto) => (<Item {...producto} key={producto.id}/>) )}
-         
-        </>
-  
-  )
+    <>
+      {productos.map((producto) => (
+        <Item {...producto} key={producto.id} />
+      ))}
+   
+    </>
+  );
 }

@@ -1,31 +1,32 @@
 import { ItemCount } from "./ItemCount";
+import { useParams } from "react-router-dom";
+import { productos } from "../data/productos";
 
-export const ItemDetail = ({title, description, category, pictureUrl,stock, price }) => {
-  
+export const ItemDetail = () => {
+  let { id } = useParams();
+
   return (
     <>
-      <div className="row row-cols-1 row-cols-md-3 g-4">
+      <div className="row justify-content-center mt-5">
         <div className="card mb-3 mw-card">
           <div className="row g-0">
-            <div className="col-md-4">
+            <div className="col-md-6">
               <img
-                src={pictureUrl}
+                src={productos[id].pictureUrl}
                 className="img-fluid rounded-start"
-                alt={title}
+                alt={productos[id].title}
               />
             </div>
-            <div className="col-md-8">
+            <div className="col-md-6">
               <div className="card-body">
-                <h2 className="text-uppercase">
-                  {category}
-                </h2>
-                <h5 className="card-title">{title}</h5>
-                <p className="card-text">{description}</p>
-                <h3>$ {price}</h3>
+                <h5 className="card-text">{productos[id].category}</h5>
+                <h2 className="card-title text-uppercase">{productos[id].title}</h2>
+                <p className="card-text">{productos[id].description}</p>
+                <h3>$ {productos[id].price}</h3>
                 <hr></hr>
               </div>
               <div className="card-footer">
-                <ItemCount stock={stock} initial={1} />
+                <ItemCount stock={productos[id].stock} initial={1} />
               </div>
             </div>
           </div>

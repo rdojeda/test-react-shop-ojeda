@@ -3,10 +3,9 @@ import { NavBar } from './components/NavBar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ItemDetail } from './components/ItemDetail';
 import { HomePage } from './pages/HomePage';
-import { ZapatillasPage } from './pages/ZapatillasPage';
-import { RemerasPage } from './pages/RemerasPage';
-import { CamperasPage } from './pages/CamperasPage';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { AboutPage } from './pages/AboutPage';
+import { ContactoPage } from './pages/ContactoPage';
 
 
 export default function App() {
@@ -16,10 +15,9 @@ export default function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/zapatillas" element={<ZapatillasPage />} />
-          <Route path="/remeras" element={<RemerasPage />} />
-          <Route path="/camperas" element={<CamperasPage />} />
-          <Route path="/ItemDetail/:id" element={<ItemDetail />}/>
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contacto" element={<ContactoPage />} />
+          <Route path="/ItemDetail/:id" element={<ItemDetail />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
